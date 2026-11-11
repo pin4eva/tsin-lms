@@ -25,6 +25,13 @@ export type IntFilter<$PrismaModel = never> = {
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
 }
 
+export type EnumAuthStrategyFilter<$PrismaModel = never> = {
+  equals?: $Enums.AuthStrategy | Prisma.EnumAuthStrategyFieldRefInput<$PrismaModel>
+  in?: $Enums.AuthStrategy[]
+  notIn?: $Enums.AuthStrategy[]
+  not?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel> | $Enums.AuthStrategy
+}
+
 export type StringFilter<$PrismaModel = never> = {
   equals?: string | Prisma.StringFieldRefInput<$PrismaModel>
   in?: string[]
@@ -64,6 +71,16 @@ export type IntWithAggregatesFilter<$PrismaModel = never> = {
   _sum?: Prisma.NestedIntFilter<$PrismaModel>
   _min?: Prisma.NestedIntFilter<$PrismaModel>
   _max?: Prisma.NestedIntFilter<$PrismaModel>
+}
+
+export type EnumAuthStrategyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AuthStrategy | Prisma.EnumAuthStrategyFieldRefInput<$PrismaModel>
+  in?: $Enums.AuthStrategy[]
+  notIn?: $Enums.AuthStrategy[]
+  not?: Prisma.NestedEnumAuthStrategyWithAggregatesFilter<$PrismaModel> | $Enums.AuthStrategy
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel>
 }
 
 export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -106,6 +123,13 @@ export type NestedIntFilter<$PrismaModel = never> = {
   gt?: number | Prisma.IntFieldRefInput<$PrismaModel>
   gte?: number | Prisma.IntFieldRefInput<$PrismaModel>
   not?: Prisma.NestedIntFilter<$PrismaModel> | number
+}
+
+export type NestedEnumAuthStrategyFilter<$PrismaModel = never> = {
+  equals?: $Enums.AuthStrategy | Prisma.EnumAuthStrategyFieldRefInput<$PrismaModel>
+  in?: $Enums.AuthStrategy[]
+  notIn?: $Enums.AuthStrategy[]
+  not?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel> | $Enums.AuthStrategy
 }
 
 export type NestedStringFilter<$PrismaModel = never> = {
@@ -158,6 +182,16 @@ export type NestedFloatFilter<$PrismaModel = never> = {
   gt?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   gte?: number | Prisma.FloatFieldRefInput<$PrismaModel>
   not?: Prisma.NestedFloatFilter<$PrismaModel> | number
+}
+
+export type NestedEnumAuthStrategyWithAggregatesFilter<$PrismaModel = never> = {
+  equals?: $Enums.AuthStrategy | Prisma.EnumAuthStrategyFieldRefInput<$PrismaModel>
+  in?: $Enums.AuthStrategy[]
+  notIn?: $Enums.AuthStrategy[]
+  not?: Prisma.NestedEnumAuthStrategyWithAggregatesFilter<$PrismaModel> | $Enums.AuthStrategy
+  _count?: Prisma.NestedIntFilter<$PrismaModel>
+  _min?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel>
+  _max?: Prisma.NestedEnumAuthStrategyFilter<$PrismaModel>
 }
 
 export type NestedStringWithAggregatesFilter<$PrismaModel = never> = {

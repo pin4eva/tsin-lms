@@ -15,11 +15,14 @@ datasource db {
 
 model Auth {
   id        Int      @id @default(autoincrement())
-  userId    Int      @unique
+  userId    Int
+  strategy  AuthStrategy @default(LOCAL)
   user      User     @relation(fields: [userId], references: [id])
-  token     String   @unique
+  password  String
+
   createdAt DateTime @default(now())
 
+@@unique([userId, strategy])
   @@map("auths")
 }
 
@@ -30,4 +33,11 @@ model User {
   auths Auth[]
 
   @@map("users")
+}
+
+
+enum AuthStrategy{
+  LOCAL
+  GOOGLE
+  MFA
 }

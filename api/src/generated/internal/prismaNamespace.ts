@@ -605,7 +605,8 @@ export type TransactionIsolationLevel = (typeof TransactionIsolationLevel)[keyof
 export const AuthScalarFieldEnum = {
   id: 'id',
   userId: 'userId',
-  token: 'token',
+  strategy: 'strategy',
+  password: 'password',
   createdAt: 'createdAt'
 } as const
 
@@ -639,6 +640,13 @@ export type SortOrder = (typeof SortOrder)[keyof typeof SortOrder]
  * Reference to a field of type 'Int'
  */
 export type IntFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Int'>
+    
+
+
+/**
+ * Reference to a field of type 'AuthStrategy'
+ */
+export type EnumAuthStrategyFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'AuthStrategy'>
     
 
 

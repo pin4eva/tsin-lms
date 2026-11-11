@@ -1,0 +1,16 @@
+{
+  "$schema": "./node_modules/oxfmt/configuration_schema.json",
+  "trailingComma": "all",
+  "semi": true,
+  "ignorePatterns": [
+    "**/generated/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.next/**",
+    "**/coverage/**",
+    "**/*.lock",
+    "**/.agents/**",
+    "**/.claude/**",
+    "**/.windsurf/**"
+  ]
+}
