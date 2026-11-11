@@ -37,7 +37,7 @@ export class AuthService {
   }
 
   // Verify user credentials
-  async verify(input: LoginDTO) {
+  async verify(input: LoginDTO): Promise<AuthResponse> {
     const { password, strategy } = input;
     const user = await this.prisma.user.findUnique({
       where: { email: normalizeEmail(input.email) },
@@ -52,6 +52,9 @@ export class AuthService {
       throw new UnauthorizedException("Please signup first");
     }
     const auth = user.auths[0];
+    if (!auth) {
+      throw new UnauthorizedException("Invalid credentials");
+    }
 
     const valid = await this.passwordHasher.verify(password, auth.password);
     if (!valid) {
@@ -64,10 +67,9 @@ export class AuthService {
         data: { password: await this.passwordHasher.hash(password) },
       });
     }
-    const { session } = await this.signInService.signIn(user.id.toString(), { method: "password" });
+    await this.signInService.signIn(user.id.toString(), { method: "password" });
 
-    // return this.issueToken(user.id);
-    return session;
+    return this.issueToken(user.id);
   }
 
   private issueToken(userId: number) {
