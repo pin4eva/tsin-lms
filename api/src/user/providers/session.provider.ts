@@ -18,8 +18,6 @@ export class SessionProvider extends SessionCookieProvider<User> {
   }
 
   async validate(session: SessionRecord) {
-    console.log({ sessionRecord: session });
-
     return await this.prisma.user.findUnique({ where: { id: +session.userId } });
   }
 }
